@@ -4,11 +4,20 @@
 }
 
 table {
-    background-color: coral;
+    background-color: grey;
     width: 150px;
     height: 150px;
+    border-collapse: collapse;
 }
 
 td {
-    display: ;
+    border: 1px solid black;
+    min-width: 50px;
+    height: 50px;
+    text-align: center;
+}
+
+.buttons {
+    margin: auto;
+    text-align: center;
 }

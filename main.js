@@ -1,9 +1,11 @@
 var gBoard;
 const MINE = '💣'
+var gBoardSize = 4
+
 
 // Starting the game!
 function init() {
-    gBoard = buildBoard(8);
+    gBoard = buildBoard(gBoardSize);
     console.table(gBoard);
     //add mines to the table
     addMines(gBoard)
@@ -16,41 +18,42 @@ function init() {
     renderBoard(gBoard)
 }
 
-
+// Building Game board
 function buildBoard(boardSize) {
     var board = [];
-
     for (var i = 0; i < boardSize; i++) {
         board[i] = []
         for (var j = 0; j < boardSize; j++) {
-            board[i][j] = 2;
+            board[i][j] = { value: 0, isShown: false };
+
         }
     }
     return board
 }
 
+// adding Random Mines
 function addMines(board) {
-
     for (var i = 0; i < (board.length * board.length) / 3; i++) {
-        board[getRandomIntInclusive(0, board.length - 1)][getRandomIntInclusive(0, board.length - 1)] = MINE;
+        board[getRandomIntInclusive(0, board.length - 1)][getRandomIntInclusive(0, board.length - 1)].value = MINE
 
     }
 }
 
 function updateNumbersToFitMineAround(board) {
-
     for (var i = 0; i < board.length; i++) {
         for (var j = 0; j < board.length; j++) {
-            if (board[i][j] !== MINE) {
+            if (board[i][j].value !== MINE) {
 
-                board[i][j] = countingMineAround(board, i, j)
+                board[i][j].value = countingMineAround(board, i, j)
             }
         }
 
     }
 }
 
+// Counting neighbors
 function countingMineAround(board, i, j) {
+
     var mineCounter = 0;
     for (var row = i - 1; row <= i + 1; row++) {
 
@@ -61,7 +64,7 @@ function countingMineAround(board, i, j) {
             if (row < 0 || cols < 0 || row >= board.length || cols >= board.length) {
                 continue;
             }
-            if (board[row][cols] === MINE) {
+            if (board[row][cols].value === MINE) {
                 mineCounter++
             }
         }
@@ -69,26 +72,28 @@ function countingMineAround(board, i, j) {
     return mineCounter
 }
 
-// makes cells Flipp
-function FlipCell(board) {
-    var elCell = document.querySelector('table');
+function cellClicked(elCell) {
+    var cellLocation = getCellCoord(elCell.id);
+    gBoard[cellLocation.i][cellLocation.j].isShown = true
 
-    for (var i = 0; i < board.length; i++) {
-
-        for (var j = 0; j < board.length; j++) {
-
-
-
-
-        }
-
-
-    }
-
-
-
+    renderCell(cellLocation, gBoard[cellLocation.i][cellLocation.j].value)
 }
 
+
+
+// Gets a string such as:  'cell-2-7' and returns {i:2, j:7}
+function getCellCoord(strCellId) {
+    var coord = {};
+    coord.i = +strCellId.substring(5, strCellId.lastIndexOf('-'));
+    coord.j = +strCellId.substring(strCellId.lastIndexOf('-') + 1);
+    // console.log('coord', coord);
+    return coord;
+}
+
+function changeLevel(boardSize) {
+    gBoardSize = boardSize
+    init()
+}
 
 
 

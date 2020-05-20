@@ -3,7 +3,7 @@
 
 function renderCell(location, value) {
     // Select the elCell and set the value
-    var elCell = document.querySelector(`.cell${location.i}-${location.j}`);
+    var elCell = document.querySelector(`.cell-${location.i}-${location.j}`);
     elCell.innerHTML = value;
 }
 
@@ -18,8 +18,8 @@ function renderBoard(board) {
             var className = ((i + j) % 2 === 0) ? 'white' : 'black';
             var tdId = `cell-${i}-${j}`;
 
-            strHtml += `<td id="${tdId}" class="${className}" onclick="cellClicked(this)">
-                            ${cell}
+            strHtml += `<td id="${tdId}" class="${tdId}" onclick="cellClicked(this)">
+                            ${cell.isShown ? cell.value : ""}
                         </td>`
         }
         strHtml += '</tr>';
