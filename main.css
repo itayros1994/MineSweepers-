@@ -1,67 +1,108 @@
-.center {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-table {
-    margin-top: 150px;
-    background-color: grey;
-    width: 150px;
-    height: 150px;
-    border-collapse: collapse;
-}
-
-td {
-    border: 1px solid black;
-    min-width: 50px;
-    height: 50px;
-    text-align: center;
-    font-size: 30px;
-    color: aliceblue;
-}
-
-td:hover {
-    background-color: lightcoral;
-}
-
-.buttons {
-    margin: auto;
-    text-align: center;
-}
-
-body {
-    background-color: rgb(37, 80, 65);
-}
-
-.hearts {
-    background-color: red;
-    display: inline-block;
-    height: 30px;
-    margin: 0 10px;
-    position: relative;
-    top: 0;
-    transform: rotate(-45deg);
-    width: 30px;
-}
-
-.hearts1 {
-    background-color: red;
-    display: inline-block;
-    height: 30px;
-    margin: 0 10px;
-    position: relative;
-    top: 0;
-    transform: rotate(-45deg);
-    width: 30px;
-}
-
-.hearts2 {
-    background-color: red;
-    display: inline-block;
-    height: 30px;
-    margin: 0 10px;
-    position: relative;
-    top: 0;
-    transform: rotate(-45deg);
-    width: 30px;
-}
+        .center {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        table {
+            margin-bottom: 100px;
+            background-color: grey;
+            width: 150px;
+            height: 150px;
+            border-collapse: collapse;
+        }
+        
+        td {
+            border: 1px solid black;
+            min-width: 50px;
+            height: 50px;
+            text-align: center;
+            font-size: 30px;
+            color: aliceblue;
+            margin: auto;
+        }
+        
+        td:hover {
+            background-color: lightcoral;
+        }
+        
+        .buttons {
+            margin: auto;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        body {
+            background-color: rgb(94, 148, 145);
+            margin: auto;
+        }
+        
+        .hearts {
+            border-top: 1px solid black;
+            border-bottom: 1px solid black;
+            display: inline-block;
+            font-size: 60px;
+            vertical-align: middle;
+            line-height: 2;
+            margin: 20px;
+        }
+        
+        .hearts1 {
+            border-top: 1px solid black;
+            border-bottom: 1px solid black;
+            display: inline-block;
+            font-size: 60px;
+            vertical-align: middle;
+            line-height: 2;
+            margin: 20px;
+        }
+        
+        .hearts2 {
+            border-top: 1px solid black;
+            border-bottom: 1px solid black;
+            display: inline-block;
+            font-size: 60px;
+            vertical-align: middle;
+            line-height: 2;
+            margin: 20px;
+        }
+        
+        .happy {
+            font-size: 90px;
+            text-align: center;
+        }
+        
+        .soso {
+            font-size: 90px;
+            text-align: center;
+        }
+        
+        .sad {
+            font-size: 90px;
+            text-align: center;
+        }
+        
+        .gameOVer {
+            font-size: 50px;
+            text-align: center;
+            margin-bottom: 100px;
+            visibility: hidden;
+        }
+        
+        .StartAgain {
+            margin: auto;
+            text-align: center;
+            margin: 20px;
+            visibility: hidden;
+        }
+        
+        .hearts100 {
+            margin-top: 100px;
+        }
+        
+        .win {
+            font-size: 50px;
+            text-align: center;
+            margin-bottom: 100px;
+            visibility: hidden;
+            ;
+        }
