@@ -34,8 +34,8 @@ function init() {
     counterNumsValue = 0;
     elWin.style.visibility = ('hidden')
     clickCounter = 0;
-    Time = 0
     document.querySelector('h2 span').innerHTML = Time;
+    Time = 0
 
 }
 
@@ -131,7 +131,6 @@ function cellClicked(elCell, event) {
     if (clickCounter === 1) {
         // Starting Game Time
         myIntreval = setInterval(MakingTimer, 1000, Time++)
-
     }
 
     console.log(mineCount)
@@ -183,9 +182,9 @@ function cellClicked(elCell, event) {
         }
     }
 
+    clickCounter++
     winGame()
         // renderCell(cellLocation, gBoard[cellLocation.i][cellLocation.j].value)
-    clickCounter++
     renderBoard(gBoard)
 }
 
@@ -241,6 +240,7 @@ var Time = 0
 function MakingTimer() {
     Time++
     document.querySelector('h2 span').innerHTML = Time;
+    console.log('hellow')
 }
 
 function gameOver() {
