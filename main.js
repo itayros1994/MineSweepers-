@@ -1,6 +1,15 @@
+// itay rosental
+
+
+
+
 var gBoard;
 const MINE = '💣'
+const FLAG = '⛳'
 var gBoardSize = 4
+var gameIsOn = false
+
+
 
 
 // Starting the game!
@@ -10,13 +19,15 @@ function init() {
     //add mines to the table
     addMines(gBoard)
 
-
     updateNumbersToFitMineAround(gBoard)
         //fix to number to fit the mines
 
     // render the modal
     renderBoard(gBoard)
+    gameIsOn = true;
 }
+
+
 
 // Building Game board
 function buildBoard(boardSize) {
@@ -24,12 +35,13 @@ function buildBoard(boardSize) {
     for (var i = 0; i < boardSize; i++) {
         board[i] = []
         for (var j = 0; j < boardSize; j++) {
-            board[i][j] = { value: 0, isShown: false };
-
+            board[i][j] = { value: 0, isShown: false, isFlag: false };
         }
     }
     return board
 }
+
+
 
 // adding Random Mines
 function addMines(board) {
@@ -39,6 +51,10 @@ function addMines(board) {
     }
 }
 
+
+
+
+//  משנה את המספרים לפי כמות המוקשים בהם נוגעים
 function updateNumbersToFitMineAround(board) {
     for (var i = 0; i < board.length; i++) {
         for (var j = 0; j < board.length; j++) {
@@ -51,9 +67,11 @@ function updateNumbersToFitMineAround(board) {
     }
 }
 
+
+
+
 // Counting neighbors
 function countingMineAround(board, i, j) {
-
     var mineCounter = 0;
     for (var row = i - 1; row <= i + 1; row++) {
 
@@ -72,12 +90,45 @@ function countingMineAround(board, i, j) {
     return mineCounter
 }
 
-function cellClicked(elCell) {
+
+
+
+
+
+
+
+
+var mineCount = 0
+
+function cellClicked(elCell, event) {
+    var elHeart = document.getElementsByClassName('.hearts')
+    var elHeart1 = document.getElementsByClassName('.hearts1')
+    var elHeart2 = document.getElementsByClassName('.hearts2')
+    console.log(mineCount)
     var cellLocation = getCellCoord(elCell.id);
     gBoard[cellLocation.i][cellLocation.j].isShown = true
+    console.log(event)
 
-    renderCell(cellLocation, gBoard[cellLocation.i][cellLocation.j].value)
+    if (event.which === 3) {
+
+        gBoard[cellLocation.i][cellLocation.j].isFlag = true;
+
+    }
+    console.log(gBoard[cellLocation.i][cellLocation.j])
+    if (gBoard[cellLocation.i][cellLocation.j].value === MINE && event.which === 1) {
+        gBoard[cellLocation.i][cellLocation.j].isShown = false
+        mineCount++
+        elHeart.style.dis
+
+        if (mineCount === 3) {
+            gameOver()
+
+        }
+    }
+    // renderCell(cellLocation, gBoard[cellLocation.i][cellLocation.j].value)
+    renderBoard(gBoard)
 }
+
 
 
 
@@ -90,6 +141,10 @@ function getCellCoord(strCellId) {
     return coord;
 }
 
+
+
+
+
 function changeLevel(boardSize) {
     gBoardSize = boardSize
     init()
@@ -101,8 +156,59 @@ function changeLevel(boardSize) {
 
 
 
+function gameOver() {
+    // reval all the mines
+
+    for (var i = 0; i < gBoard.length; i++) {
+
+        for (var j = 0; j < gBoard.length; j++) {
+            if (gBoard[i][j].value === MINE)
+                gBoard[i][j].isShown = true
+
+        }
+
+    }
+    renderBoard(gBoard)
+        // game over Alert
+    alert('Game Over!')
+    mineCount = 0
+
+}
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function makeTimer() {
+//     inter = setInterval(increaseTime, 100)
+// }
+
+
+// function increaseTime() {
+//     var elTimer = document.querySelector('h2 span');
+//     timer += 0.1
+//     elTimer.innerText = timer;
+// }
 
 
 

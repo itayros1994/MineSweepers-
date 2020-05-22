@@ -15,11 +15,20 @@ function renderBoard(board) {
         for (var j = 0; j < row.length; j++) {
             var cell = row[j];
             // figure class name
-            var className = ((i + j) % 2 === 0) ? 'white' : 'black';
-            var tdId = `cell-${i}-${j}`;
 
-            strHtml += `<td id="${tdId}" class="${tdId}" onclick="cellClicked(this)">
-                            ${cell.isShown ? cell.value : ""}
+            var tdId = `cell-${i}-${j}`;
+            var cellValue = ""
+            if (cell.isFlag) {
+                cellValue = FLAG
+            } else
+            if (cell.isShown) {
+                cellValue = cell.value
+
+            }
+
+
+            strHtml += `<td id="${tdId}" class="${tdId}" onmousedown="cellClicked(this,event)" oncontextmenu="return false">
+                            ${cellValue}
                         </td>`
         }
         strHtml += '</tr>';

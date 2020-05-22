@@ -2,41 +2,39 @@
 <html lang="en">
 
 <head>
+    <link rel="stylesheet" href="main.css">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mine Sweeper</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
-    <link rel="stylesheet" href="css/app.css" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mine-Sweepers</title>
+
+
+
 </head>
 
 <body onload="init()">
 
-    <h1 class="game-over">GAME OVER</h1>
-    <h1 class="winner">YOU WIN!!!</h1>
-    <div class="container">
-        <h2>MineSweeper</h2><hr>
-        
-        <button onclick="init()" class="emoji">😄</button>
+    <div class="hearts"></div>
+    <div class="hearts1"></div>
+    <div class="hearts2"></div>
 
-        <div class="timer"></div>
-        <div class="life">Lifes - ❤️❤️❤️</div>
 
-        <button onclick="safeClick()" class="safe-click">SAFE CLICK</button>
-        <button onclick="setMode(this)" class="easy">Easy</button>
-        <button onclick="setMode(this)" class="med">Medium</button>
-        <button onclick="setMode(this)" class="hard">Hard</button>
-        
-
-        <table class="center">
-            <tbody class="game-board"></tbody>
-        </table>
-
-        <button onclick="changeToManual()" class="manual">Place mines Manualy</button>
+    <table class="center">
+        <tbody class="game-board">
+        </tbody>
+    </table>
+    <div class="buttons">
+        <button onclick="changeLevel(4)">Easy</button>
+        <button onclick="changeLevel(8)">Medium</button>
+        <button onclick="changeLevel(12)">Hard</button>
     </div>
 
-    <script src="js/util.js"></script>
-    <script src="js/game.js"></script>
+    <h2 onclick="gameTime()">Game time: <span>0</span> sec</h2>
+
+    <script src="utils.js"></script>
+    <script src="main.js"></script>
+
 </body>
 
 </html>
-

@@ -4,6 +4,7 @@
 }
 
 table {
+    margin-top: 150px;
     background-color: grey;
     width: 150px;
     height: 150px;
@@ -15,9 +16,52 @@ td {
     min-width: 50px;
     height: 50px;
     text-align: center;
+    font-size: 30px;
+    color: aliceblue;
+}
+
+td:hover {
+    background-color: lightcoral;
 }
 
 .buttons {
     margin: auto;
     text-align: center;
+}
+
+body {
+    background-color: rgb(37, 80, 65);
+}
+
+.hearts {
+    background-color: red;
+    display: inline-block;
+    height: 30px;
+    margin: 0 10px;
+    position: relative;
+    top: 0;
+    transform: rotate(-45deg);
+    width: 30px;
+}
+
+.hearts1 {
+    background-color: red;
+    display: inline-block;
+    height: 30px;
+    margin: 0 10px;
+    position: relative;
+    top: 0;
+    transform: rotate(-45deg);
+    width: 30px;
+}
+
+.hearts2 {
+    background-color: red;
+    display: inline-block;
+    height: 30px;
+    margin: 0 10px;
+    position: relative;
+    top: 0;
+    transform: rotate(-45deg);
+    width: 30px;
 }
