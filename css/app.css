@@ -1,0 +1,128 @@
+body {
+   background-color: rgb(255, 255, 157)
+}
+
+h2 {
+    color : black;
+    text-shadow: -2px -2px 0px white;
+    font-size: 2em;
+}
+
+h1{
+    font-size: 9em;
+    position: absolute;
+    top: 180px;
+    left: 290px;
+    text-shadow: -4px -4px 2px rgba(150, 150, 150, 1);
+    visibility: hidden;
+}
+
+.winner{
+    font-size: 9em;
+    position: absolute;
+    top: 200px;
+    left: 330px;
+    text-shadow: -4px -4px 2px rgba(150, 150, 150, 1);
+    visibility: hidden;
+}
+
+.game-board td {
+    width: 40px;
+    height:40px;
+    text-align: center;
+    font-size:1.4em;
+}
+
+table.center {
+    margin-left:auto; 
+    margin-right:auto;
+  }
+
+  button {
+      cursor: pointer;
+  }
+
+.hidden {
+    background-color:#A52A2A;
+    box-shadow: 0px 1px 15px 2px black;
+    cursor: pointer;
+}
+
+
+.flipped {
+    background-color: orange;
+
+}
+
+.bombed {
+    background-color: red;
+}
+
+.easy, .med, .hard{
+    background-color: white;
+    margin: 10px;
+    width: 80px;
+    height:40px;
+    border-radius: 30px;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0px 1px 15px 2px black;
+    margin-bottom: 20px;
+}
+
+.easy {
+    background-color: rgb(81, 126, 81);
+}
+
+.med {
+    background-color: rgb(150, 150, 21);
+}
+
+.hard {
+    background-color:rgb(136, 83, 83);
+}
+
+.manual{
+    margin: 15px;
+    width: 150px;
+    height: 40px;
+    border-radius: 5px 5px 25px 25px;
+    font-size: 0.7em;
+    font-weight: bold;
+    background-color: black;
+    color: white;
+    box-shadow: 0px 1px 15px 2px gray;
+}
+
+.emoji {
+    box-shadow: -1px -3px 5px 3px #6b6b6b;
+    width: 40px;
+    height:40px;
+    font-size: 2em;
+    padding: 0;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.container {
+    margin: 0 auto;
+    text-align: center;
+
+}
+
+.outline {
+    border: solid rgb(231, 231, 231) 2px;
+    box-sizing: border-box;
+}
+
+.safe-click {
+    position: absolute;
+    height: 60px;
+    margin-top: 150px;
+    left: 330px;
+    font-weight: bold;
+    background-color: rgb(67, 67, 228);
+    color: white;
+    box-shadow: 0px 1px 15px 2px gray;
+}
+
