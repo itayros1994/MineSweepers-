@@ -169,6 +169,7 @@ function cellClicked(elCell, event) {
                     continue;
                 }
                 gBoard[row][cols].isShown = true;
+                counterNumsValue++
             }
         }
     }
