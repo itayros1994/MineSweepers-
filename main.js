@@ -35,12 +35,10 @@ function init() {
     Time = 0
     elHappy.innerText = '😀'
     gameStarted = false
+    clearInterval(myIntreval);
     myIntreval = setInterval(MakingTimer, 1000)
 
 }
-
-
-
 
 function MakingTimer() {
     document.querySelector('h2 span').innerHTML = Time;
@@ -48,7 +46,6 @@ function MakingTimer() {
         Time++
     }
 }
-
 
 // Building Game board
 function buildBoard(boardSize) {
@@ -61,11 +58,7 @@ function buildBoard(boardSize) {
     }
     return board
 }
-
-
-
 // adding Random Mines
-
 function addMines(board) {
     for (var i = 0; i < (board.length * board.length) / 3; i++) {
         board[getRandomIntInclusive(0, board.length - 1)][getRandomIntInclusive(0, board.length - 1)].value = MINE
@@ -114,7 +107,6 @@ var elHeart2 = document.querySelector('.hearts2')
 elHeart.style.visibility = 'visible';
 elHeart1.style.visibility = 'visible';
 elHeart2.style.visibility = 'visible';
-
 
 var counterNumsValue = 0;
 // Clicking Events...
