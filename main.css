@@ -1,108 +1,177 @@
-        .center {
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        table {
-            margin-bottom: 100px;
-            background-color: grey;
-            width: 150px;
-            height: 150px;
-            border-collapse: collapse;
-        }
-        
-        td {
-            border: 1px solid black;
-            min-width: 50px;
-            height: 50px;
-            text-align: center;
-            font-size: 30px;
-            color: aliceblue;
-            margin: auto;
-        }
-        
-        td:hover {
-            background-color: lightcoral;
-        }
-        
-        .buttons {
-            margin: auto;
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        
-        body {
-            background-color: rgb(94, 148, 145);
-            margin: auto;
-        }
-        
-        .hearts {
-            border-top: 1px solid black;
-            border-bottom: 1px solid black;
-            display: inline-block;
-            font-size: 60px;
-            vertical-align: middle;
-            line-height: 2;
-            margin: 20px;
-        }
-        
-        .hearts1 {
-            border-top: 1px solid black;
-            border-bottom: 1px solid black;
-            display: inline-block;
-            font-size: 60px;
-            vertical-align: middle;
-            line-height: 2;
-            margin: 20px;
-        }
-        
-        .hearts2 {
-            border-top: 1px solid black;
-            border-bottom: 1px solid black;
-            display: inline-block;
-            font-size: 60px;
-            vertical-align: middle;
-            line-height: 2;
-            margin: 20px;
-        }
-        
-        .happy {
-            font-size: 90px;
-            text-align: center;
-        }
-        
-        .soso {
-            font-size: 90px;
-            text-align: center;
-        }
-        
-        .sad {
-            font-size: 90px;
-            text-align: center;
-        }
-        
-        .gameOVer {
-            font-size: 50px;
-            text-align: center;
-            margin-bottom: 100px;
-            visibility: hidden;
-        }
-        
-        .StartAgain {
-            margin: auto;
-            text-align: center;
-            margin: 20px;
-            visibility: hidden;
-        }
-        
-        .hearts100 {
-            margin-top: 100px;
-        }
-        
-        .win {
-            font-size: 50px;
-            text-align: center;
-            margin-bottom: 100px;
-            visibility: hidden;
-            ;
-        }
+                                .center {
+                                    margin-left: auto;
+                                    margin-right: auto;
+                                }
+                                
+                                table {
+                                    margin-bottom: 100px;
+                                    background-color: grey;
+                                    width: 150px;
+                                    height: 150px;
+                                    border-collapse: collapse;
+                                }
+                                
+                                td {
+                                    border: 1px solid black;
+                                    min-width: 50px;
+                                    height: 50px;
+                                    text-align: center;
+                                    font-size: 30px;
+                                    color: aliceblue;
+                                    margin: auto;
+                                }
+                                
+                                td:hover {
+                                    background-color: rgb(181, 226, 240);
+                                    transition: 1s
+                                }
+                                
+                                .buttons {
+                                    font-size: 20px;
+                                    margin: auto;
+                                    text-align: center;
+                                    margin-bottom: 30px;
+                                    margin-top: 30px;
+                                    color: black;
+                                }
+                                
+                                .button:hover {
+                                    background-color: rgb(97, 100, 97);
+                                    color: white;
+                                }
+                                
+                                body {
+                                    margin: auto;
+                                    background-color: #5cc09a;
+                                    background-image: url("bgc.jpg");
+                                }
+                                
+                                .hearts {
+                                    border-top: 1px solid black;
+                                    border-bottom: 1px solid black;
+                                    display: inline-block;
+                                    font-size: 60px;
+                                    vertical-align: middle;
+                                    line-height: 2;
+                                    margin: 20px;
+                                }
+                                
+                                .hearts1 {
+                                    border-top: 1px solid black;
+                                    border-bottom: 1px solid black;
+                                    display: inline-block;
+                                    font-size: 60px;
+                                    vertical-align: middle;
+                                    line-height: 2;
+                                    margin: 20px;
+                                }
+                                
+                                .hearts2 {
+                                    border-top: 1px solid black;
+                                    border-bottom: 1px solid black;
+                                    display: inline-block;
+                                    font-size: 60px;
+                                    vertical-align: middle;
+                                    line-height: 2;
+                                    margin: 20px;
+                                }
+                                
+                                .happy {
+                                    font-size: 90px;
+                                    text-align: center;
+                                }
+                                
+                                .soso {
+                                    font-size: 90px;
+                                    text-align: center;
+                                }
+                                
+                                .sad {
+                                    font-size: 90px;
+                                    text-align: center;
+                                }
+                                
+                                .gameOVer {
+                                    font-size: 50px;
+                                    text-align: center;
+                                    margin-bottom: 100px;
+                                    visibility: hidden;
+                                }
+                                
+                                .hearts100 {
+                                    margin-top: 100px;
+                                    text-align: center;
+                                }
+                                
+                                .win {
+                                    font-size: 50px;
+                                    text-align: center;
+                                    margin-bottom: 100px;
+                                    visibility: hidden;
+                                    ;
+                                }
+                                
+                                h2 {
+                                    text-align: center;
+                                }
+                                
+                                .btn1 {
+                                    width: 150px;
+                                    height: 80px;
+                                    background-color: rgba(255, 255, 255, 0.383);
+                                    font-size: 15px;
+                                }
+                                
+                                .btn1:hover {
+                                    background-color: rgb(84, 163, 194);
+                                    transition: 1s;
+                                }
+                                
+                                .btn2:hover {
+                                    background-color: rgb(155, 221, 149);
+                                    transition: 1s;
+                                }
+                                
+                                .btn3:hover {
+                                    background-color: rgb(243, 83, 83);
+                                    transition: 1s;
+                                }
+                                
+                                .btn2 {
+                                    width: 150px;
+                                    height: 80px;
+                                    background-color: rgba(255, 255, 255, 0.383);
+                                    font-size: 15px;
+                                }
+                                
+                                .btn3 {
+                                    width: 150px;
+                                    height: 80px;
+                                    background-color: rgba(255, 255, 255, 0.383);
+                                    font-size: 15px;
+                                }
+                                
+                                .StartAgain {
+                                    text-align: center;
+                                    margin-bottom: 50px;
+                                    margin: auto;
+                                    font-size: 20px;
+                                    margin-bottom: 50px;
+                                    background-color: rgba(255, 255, 255, 0.383);
+                                    width: 150px;
+                                    height: 50px;
+                                }
+                                
+                                .StartAgain:hover {
+                                    background-color: rgb(113, 200, 216);
+                                    transition: 1s;
+                                    text-align: center;
+                                }
+                                
+                                .start {
+                                    text-align: center;
+                                }
+                                
+                                .time {
+                                    background-color: rgba(255, 255, 255, 0.383);
+                                }

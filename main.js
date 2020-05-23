@@ -7,8 +7,9 @@ const MINE = '💣'
 const FLAG = '⛳'
 var gBoardSize = 4
 var gameIsOn = false
-
-
+var elHappy = document.querySelector('.happy')
+var gameStarted = false;
+var Time = 0;
 
 
 // Starting the game!
@@ -17,28 +18,36 @@ function init() {
     console.table(gBoard);
     //add mines to the table
     addMines(gBoard)
-
     updateNumbersToFitMineAround(gBoard)
         //fix to number to fit the mine
         // render the modal
     renderBoard(gBoard)
-    elHappy.style.visibility = 'visible'
-    elSoso.style.visibility = 'hidden'
-    elSad2.style.visibility = 'hidden'
     elGameOver.style.visibility = 'hidden'
+        // Put the hearts life 
     elHeart.style.visibility = 'visible';
     elHeart1.style.visibility = 'visible';
     elHeart2.style.visibility = 'visible';
-    gameIsOn = true;
     mineCount = 0;
     counterNumsValue = 0;
     elWin.style.visibility = ('hidden')
-    clickCounter = 0;
+    numsOfClicks = 0;
     document.querySelector('h2 span').innerHTML = Time;
     Time = 0
+    elHappy.innerText = '😀'
+    gameStarted = false
+    myIntreval = setInterval(MakingTimer, 1000)
 
 }
 
+
+
+
+function MakingTimer() {
+    document.querySelector('h2 span').innerHTML = Time;
+    if (gameStarted === true) {
+        Time++
+    }
+}
 
 
 // Building Game board
@@ -58,15 +67,10 @@ function buildBoard(boardSize) {
 // adding Random Mines
 
 function addMines(board) {
-
     for (var i = 0; i < (board.length * board.length) / 3; i++) {
         board[getRandomIntInclusive(0, board.length - 1)][getRandomIntInclusive(0, board.length - 1)].value = MINE
-
     }
-
-
 }
-
 
 //  משנה את המספרים לפי כמות המוקשים בהם נוגעים
 function updateNumbersToFitMineAround(board) {
@@ -80,7 +84,6 @@ function updateNumbersToFitMineAround(board) {
 
     }
 }
-
 
 // Counting neighbors
 function countingMineAround(board, i, j) {
@@ -112,35 +115,26 @@ elHeart.style.visibility = 'visible';
 elHeart1.style.visibility = 'visible';
 elHeart2.style.visibility = 'visible';
 
-var elHappy = document.querySelector('.happy')
-var elSoso = document.querySelector('.soso')
-var elSad2 = document.querySelector('.sad')
-elHappy.style.visibility = 'visible'
-elSoso.style.visibility = 'hidden'
-elSad2.style.visibility = 'hidden'
 
 var counterNumsValue = 0;
-
-
 // Clicking Events...
 
-var clickCounter = 0
 var myIntreval;
+var numsOfClicks = 0;
+console.log(numsOfClicks)
 
 function cellClicked(elCell, event) {
-    if (clickCounter === 1) {
-        // Starting Game Time
-        myIntreval = setInterval(MakingTimer, 1000, Time++)
-    }
+    gameStarted = true
+
 
     console.log(mineCount)
     var cellLocation = getCellCoord(elCell.id);
     if (gBoard[cellLocation.i][cellLocation.j].value !== MINE && event.which === 1 && gBoard[cellLocation.i][cellLocation.j].isShown === false) {
         counterNumsValue++
     }
+
     gBoard[cellLocation.i][cellLocation.j].isShown = true
     console.log(event)
-
 
     if (event.which === 3) {
         gBoard[cellLocation.i][cellLocation.j].isFlag = true;
@@ -150,39 +144,42 @@ function cellClicked(elCell, event) {
     if (gBoard[cellLocation.i][cellLocation.j].value === MINE && event.which === 1) {
         gBoard[cellLocation.i][cellLocation.j].isShown = false
         mineCount++
-
-        // making Heart Lifes
-
         if (mineCount === 1) {
             elHeart.style.visibility = 'hidden';
             elHeart1.style.visibility = 'visible';
             elHeart2.style.visibility = 'visible';
-            elHappy.style.visibility = 'hidden'
-            elSoso.style.visibility = 'visible'
-
+            elHappy.innerText = '😬'
         }
         if (mineCount === 2) {
-
             elHeart.style.visibility = 'hidden';
             elHeart1.style.visibility = 'hidden';
             elHeart2.style.visibility = 'visible';
-            elHappy.style.visibility = 'hidden'
-            elSoso.style.visibility = 'visible'
+            elHappy.innerText = '😬'
         }
         if (mineCount === 3) {
-
             elHeart.style.visibility = 'hidden';
             elHeart1.style.visibility = 'hidden';
             elHeart2.style.visibility = 'hidden';
-            elHappy.style.visibility = 'hidden'
-            elSoso.style.visibility = 'hidden'
-            elSad2.style.visibility = 'visible'
+            elHappy.innerText = '😭'
             gameOver();
 
         }
     }
+    // חושף את כל ה0
+    if (gBoard[cellLocation.i][cellLocation.j].value === 0) {
+        for (var row = cellLocation.i - 1; row <= cellLocation.i + 1; row++) {
+            for (var cols = cellLocation.j - 1; cols <= cellLocation.j + 1; cols++) {
 
-    clickCounter++
+                if (cols === cellLocation.j && row === cellLocation.i) {
+                    continue;
+                }
+                if (row < 0 || cols < 0 || row >= gBoard.length || cols >= gBoard.length) {
+                    continue;
+                }
+                gBoard[row][cols].isShown = true;
+            }
+        }
+    }
     winGame()
         // renderCell(cellLocation, gBoard[cellLocation.i][cellLocation.j].value)
     renderBoard(gBoard)
@@ -197,15 +194,11 @@ function getCellCoord(strCellId) {
     return coord;
 }
 
-
 function changeLevel(boardSize) {
     gBoardSize = boardSize
     init()
 }
-
-
 // win game when all the numbers reveald
-
 var elWin = document.querySelector('.win')
 
 function winGame() {
@@ -221,39 +214,22 @@ function winGame() {
 
     if (isNumber === counterNumsValue) {
         elWin.style.visibility = ('visible')
-
+        clearInterval(myIntreval);
     }
-    clearInterval(myIntreval);
 }
-
-
-
 
 var elGameOver = document.querySelector('.gameOVer');
 var elStartAgain = document.querySelector('.StartAgain')
 
-
-
 // Doin Game Timer
-var Time = 0
-
-function MakingTimer() {
-    Time++
-    document.querySelector('h2 span').innerHTML = Time;
-    console.log('hellow')
-}
-
 function gameOver() {
     // reval all the mines
     clearInterval(myIntreval);
-
-
     for (var i = 0; i < gBoard.length; i++) {
 
         for (var j = 0; j < gBoard.length; j++) {
             if (gBoard[i][j].value === MINE)
                 gBoard[i][j].isShown = true
-
         }
     }
     renderBoard(gBoard)
@@ -261,7 +237,6 @@ function gameOver() {
     elGameOver.style.visibility = 'visible'
     elStartAgain.style.visibility = 'visible'
     counterNumsValue = 0
-
 }
 
 

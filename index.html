@@ -14,19 +14,18 @@
 </head>
 
 <body onload="init()">
-    <div class="gameOVer">Game Over!</div>
-    <div class="win">You Win!</div>
-
     <div class="hearts100">
+        <div class="win">You Win!</div>
         <div class="hearts">❤️</div>
         <div class="hearts1">❤️</div>
         <div class="hearts2">❤️</div>
+        <div class="gameOVer">Game Over!</div>
     </div>
     </div>
     <div class="buttons">
-        <button onclick="changeLevel(4)">Easy</button>
-        <button onclick="changeLevel(8)">Medium</button>
-        <button onclick="changeLevel(12)">Hard</button>
+        <button class="btn1" onclick="changeLevel(4)">Easy</button>
+        <button class="btn2" onclick="changeLevel(8)">Medium</button>
+        <button class="btn3" onclick="changeLevel(12)">Hard</button>
     </div>
     <table class="center">
         <tbody class="game-board">
@@ -34,11 +33,9 @@
     </table>
     <div class="smilys">
         <div class="happy">😀</div>
-        <div class="soso">😬</div>
-        <div class="sad">😭</div>
     </div>
-    <div onclick="init()" class="StartAgain"><button>Start Again!</button></div>
-    <h2 onclick="init()">Game time: <span>0</span> sec</h2>
+    <h2 class="time" onclick="init()">🕓<span>0</span> sec</h2>
+    <div class="start" onclick="init()"><button class="StartAgain">Start Again!</button></div>
 
     <script src="utils.js"></script>
     <script src="main.js"></script>
